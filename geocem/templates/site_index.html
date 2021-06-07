@@ -9,18 +9,18 @@ This is where you can override the hero area block. You can simply modify the co
 {% if custom_theme.welcome_theme == 'JUMBOTRON_BG' or not slides %}
 <div class="jumbotron">
   <div class="container">
-    {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"Welcome"|template_trans %}
+    {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
     <h1>{% trans jumbotron_welcome_title %}</h1>
     {% endwith %}
     <p></p>
-    {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"GeoNode is an open source platform for sharing geospatial data and maps."|template_trans %}
+    {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"GeoCEM is an open source platform for sharing geospatial data and maps."|template_trans %}
     <p>{% trans jumbotron_welcome_content %}</p>
     {% endwith %}
-    {% if not custom_theme.jumbotron_cta_hide %}
-    <p><a class="btn btn-default btn-lg" target="_blank"
-        href="{{custom_theme.jumbotron_cta_link|default:_("https://docs.geonode.org/en/master/usage/index.html")}}"
-        role="button">{{custom_theme.jumbotron_cta_text|default:_("Get Started &raquo;")}}</a></p>
-    {% endif %}
+    <!-- {% if not custom_theme.jumbotron_cta_hide %} -->
+    <!-- <p><a class="btn btn-default btn-lg" target="_blank" -->
+    <!--     href="{{custom_theme.jumbotron_cta_link|default:_("https://docs.geonode.org/en/master/usage/index.html")}}" -->
+    <!--     role="button">{{custom_theme.jumbotron_cta_text|default:_("Get Started &raquo;")}}</a></p> -->
+    <!-- {% endif %} -->
   </div>
 </div>
 {% else %}
