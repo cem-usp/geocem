@@ -1,4 +1,4 @@
-.navbar-brand {
+.inst-brand {
   background: url("../img/logo-removebg.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -7,6 +7,16 @@
   height: 60px;
   width: 150px;
 }
+.navbar-brand {
+  background: url("../img/icongeocem.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-indent: -9999px;
+  height: 60px;
+  width: 150px;
+}
+
 body {
   background: #F5F5F5;/*#333333;*/
   font-family: 'Lato', sans-serif;
@@ -68,3 +78,51 @@ footer a:hover {
 footer form {
   color: #333333;
 }
+/* for new style */
+
+footer .wrap-outer-footer-institute {
+    background: #fff;
+    font-size: 9px;
+    color: #333;
+    right: 0;
+    left: 0;
+    position: fixed;
+}
+footer .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+footer .wrapper-institute {
+    padding: 20px 0;
+}
+footer .footer-info-institute {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+}
+footer .about-cem {
+    color: #000000; /*#dedede;*/
+    margin-right: 4%;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.footer-info-institute img {
+  float: left;
+  /*width: 100px;*/
+  height: 40px;
+  padding-left: 18px;
+}
+footer .about-cem span {
+  position: relative;
+  left: 20px;
+}
+/*end*/
