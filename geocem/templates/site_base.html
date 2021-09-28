@@ -1,4 +1,9 @@
 {% extends "base.html" %}
+{% load i18n avatar_tags %}
+{% load static from staticfiles %}
+{% load account socialaccount %}
+{% load base_tags %}
+
 {% block extra_head %}
       <link href="{{ STATIC_URL }}css/site_base.css" rel="stylesheet"/>
 {% endblock %}
@@ -10,3 +15,80 @@ Add Tab for Third Party Apps
 </li>
 {% endcomment %}
 {% endblock %}
+
+  {% block footer %}
+  <footer>
+    <div class="container">      
+      <div class="row">
+	<div class="col-md-2">
+	  <a class="navbar-brand" href="{% url "home" %}"><span class="title">CEM<span></a>
+	</div>	
+	<div class="col-md-2">
+          <ul class="list-unstyled">            
+            <li><a href="https://centrodametropole.fflch.usp.br/pt-br/sistemas-interativos">Sistemas Interativos</a></li>
+	    <li><a href="https://centrodametropole.fflch.usp.br/fale-conosco">Fale conosco</a></li>
+            <li><a href="https://centrodametropole.fflch.usp.br/">Acerca do CEM</a></li>
+          </ul>
+        </div>
+	<div class="col-md-2">         
+          <ul class="list-unstyled">
+	    <li><a href="http://cebrap.org.br/">CEBRAP</a></li>
+            <li><a href="http://www5.usp.br/">USP</a></li>  
+          </ul>          
+        </div>
+	<div class="col-md-2">         
+          <ul class="list-unstyled">
+            <li><a href="http://www.fapesp.br/">FAPESP</a></li>
+	    <li><a href="http://cepid.fapesp.br/home/">CEPID</a></li>	    
+          </ul>          
+        </div>
+	<div class="col-md-4 text-right">
+	   {% block contactus %}
+          {% if custom_theme.contactus %}
+          <ul class="list-unstyled">
+              <li style="text-align: left;"><h2 style="margin-top: 0px;">{% trans "Contact Us" %} </h2> </li>
+              {% if custom_theme.contact_name %}<li style="text-align: left;">{{ custom_theme.contact_name }}</li>{% endif %}
+              {% if custom_theme.contact_position %}<li style="text-align: left;">{{ custom_theme.contact_position }}</li>{% endif %}
+              {% if custom_theme.contact_administrative_area %}<li style="text-align: left;">{{ custom_theme.contact_administrative_area }}</li>{% endif %}
+              {% if custom_theme.contact_city %}<li style="text-align: left;">{{ custom_theme.contact_city }}</li>{% endif %}
+              {% if custom_theme.contact_street %}<li style="text-align: left;">{{ custom_theme.contact_street }}</li>{% endif %}
+              {% if custom_theme.contact_postal_code %}<li style="text-align: left;">{{ custom_theme.contact_postal_code }}</li>{% endif %}
+              {% if custom_theme.contact_country %}<li style="text-align: left;">{{ custom_theme.contact_country }}</li>{% endif %}
+              {% if custom_theme.contact_delivery_point %}<li style="text-align: left;">{{ custom_theme.contact_delivery_point }}</li>{% endif %}
+              {% if custom_theme.contact_voice %}<li style="text-align: left;">{% trans "Tel" %}: {{ custom_theme.contact_voice }}</li>{% endif %}
+              {% if custom_theme.contact_facsimile %}<li style="text-align: left;">{% trans "Fax" %}: {{ custom_theme.contact_facsimile }}</li>{% endif %}
+              {% if custom_theme.contact_email %}<li style="text-align: left;">{% trans "E-mail" %}: {{ custom_theme.contact_email }}</li>{% endif %}
+          </ul>
+          {% endif %}
+          {% endblock contactus %}
+	    
+	  <ul class="list-unstyled">
+	    <li>Conteudo criado pelo CEM</li>
+	    <li>Notifiquenos sobre o copyright</li>	    
+            <li>Powered by <a href="http://geonode.org">GeoNode</a></li>    
+          </ul>
+	  
+	  <label class="hidden">{% trans "Language" %}</label>
+          {% if csrf_token != "NOTPROVIDED" %}
+          {% get_current_language as LANGUAGE %}
+          <form class="form-inline" action="/i18n/setlang/" method="post">
+          {% csrf_token %}
+            <select class="col-md-6 pull-right" name="language" onchange="javascript:form.submit()">
+              {% for lang in LANGUAGES %}
+              <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
+                {{ lang.1 }}
+              </option>
+              {% endfor %}
+            </select>
+          </form>
+          {% endif %}
+	  
+	  
+	  
+	</div>
+	
+      </div>
+    </div>
+  </footer>
+
+  {% endblock footer %}
