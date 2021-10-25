@@ -8,11 +8,15 @@ This is where you can override the hero area block. You can simply modify the co
 {% block hero %}
 {% if custom_theme.welcome_theme == 'JUMBOTRON_BG' or not slides %}
 <div class="jumbotron">
+            
 <div class="container">
+  {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
+    <h1>{% trans jumbotron_welcome_title %}</h1>
+  {% endwith %}
             <div class="row">
-          <div class="col-lg-4">
+          <div class="col-lg-1">
           </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <a href="http://200.144.244.238/layers/geocem_data:geonode:BIO_21_BR_CEM">
                 <figure class="item_figure">
                   <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/BIO_21_BR_CEM/45d34841dfae4ec43aa00be68b2df60e.png" />
@@ -21,7 +25,7 @@ This is where you can override the hero area block. You can simply modify the co
                     </a>
           
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <a href="http://200.144.244.238/layers/geocem_data:geonode:DP2021_MSP_CEM_V1">
                 <figure  class="item_figure">
                   <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/DP2021_MSP_CEM_V1/11248d3d53a6085747c34912da6247ed.png"/>
@@ -29,15 +33,15 @@ This is where you can override the hero area block. You can simply modify the co
             </figure >
                     </a>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
               <a href="http://200.144.244.238/layers/geocem_data:geonode:TERM_PAS_2021_CEM">
                 <figure  class="item_figure">
                   <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/TERM_PAS_2021_CEM_WqCT7Cv/1a3c726059c145f76d3f08a5fba3ad2e.png" />
-            <figcaption  class="legend_figure">Terminais de Passageiros - RMSP - 2021<figcaption>
+            <figcaption  class="legend_figure">Terminais de Passageiros<figcaption>
                 </figure>
                     </a>
               </div>
-              <div class="col-lg-4">
+              <div class="col-lg-1">
                 </div>
             </div>
               </div>
