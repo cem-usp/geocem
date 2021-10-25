@@ -7,12 +7,8 @@ This is where you can override the hero area block. You can simply modify the co
 {% endcomment %}
 {% block hero %}
 {% if custom_theme.welcome_theme == 'JUMBOTRON_BG' or not slides %}
-<div class="jumbotron">
-            
+<div class="jumbotron">            
 <div class="container">
-  {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
-    <h1>{% trans jumbotron_welcome_title %}</h1>
-  {% endwith %}
             <div class="row">
           <div class="col-lg-1">
           </div>
