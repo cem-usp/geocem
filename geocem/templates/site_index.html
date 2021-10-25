@@ -8,21 +8,51 @@ This is where you can override the hero area block. You can simply modify the co
 {% block hero %}
 {% if custom_theme.welcome_theme == 'JUMBOTRON_BG' or not slides %}
 <div class="jumbotron">
-  <div class="container">
-    {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
-    <h1>{% trans jumbotron_welcome_title %}</h1>
-    {% endwith %}
-    <p></p>
-    {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"GeoCEM is an open source platform for sharing geospatial data and maps."|template_trans %}
-    <p>{% trans jumbotron_welcome_content %}</p>
-    {% endwith %}
+<div class="container">
+            <div class="row">
+          <div class="col-lg-4">
+          </div>
+            <div class="col-lg-4">
+              <a href="http://200.144.244.238/layers/geocem_data:geonode:BIO_21_BR_CEM">
+                <figure class="item_figure">
+                  <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/BIO_21_BR_CEM/45d34841dfae4ec43aa00be68b2df60e.png" />
+            <figcaption class="legend_figure">Grandes Biomas do Brasil</figcaption>
+                </figure>
+                    </a>
+          
+            </div>
+            <div class="col-lg-4">
+              <a href="http://200.144.244.238/layers/geocem_data:geonode:DP2021_MSP_CEM_V1">
+                <figure  class="item_figure">
+                  <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/DP2021_MSP_CEM_V1/11248d3d53a6085747c34912da6247ed.png"/>
+            <figcaption  class="legend_figure">Distritos e Delegacias Policiais</figcaption>
+            </figure >
+                    </a>
+            </div>
+            <div class="col-lg-4">
+              <a href="http://200.144.244.238/layers/geocem_data:geonode:TERM_PAS_2021_CEM">
+                <figure  class="item_figure">
+                  <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/TERM_PAS_2021_CEM_WqCT7Cv/1a3c726059c145f76d3f08a5fba3ad2e.png" />
+            <figcaption  class="legend_figure">Terminais de Passageiros - RMSP - 2021<figcaption>
+                </figure>
+                    </a>
+              </div>
+              <div class="col-lg-4">
+                </div>
+            </div>
+              </div>
+    <!-- {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %} -->
+    <!-- <h1>{% trans jumbotron_welcome_title %}</h1> -->
+    <!-- {% endwith %} -->
+    <!-- <p></p> -->
+    <!-- {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"GeoCEM is an open source platform for sharing geospatial data and maps."|template_trans %} -->
+    <!-- <p>{% trans jumbotron_welcome_content %}</p> -->
+    <!-- {% endwith %} -->
     <!-- {% if not custom_theme.jumbotron_cta_hide %} -->
     <!-- <p><a class="btn btn-default btn-lg" target="_blank" -->
     <!--     href="{{custom_theme.jumbotron_cta_link|default:_("https://docs.geonode.org/en/master/usage/index.html")}}" -->
     <!--     role="button">{{custom_theme.jumbotron_cta_text|default:_("Get Started &raquo;")}}</a></p> -->
     <!-- {% endif %} -->
-  </div>
-</div>
 {% else %}
 <div class="geonode-slide-show">
   <div class="jumbotron jumbotron--no_bg">
