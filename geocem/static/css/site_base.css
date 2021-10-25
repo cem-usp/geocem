@@ -126,3 +126,22 @@ footer .about-cem span {
   left: 20px;
 }
 /*end*/
+/**********mosaico***********/
+.item_figure {
+  border: 1px #cccccc solid;
+  padding: 4px;
+  margin: auto;
+}
+.item_figure img{
+    width: 100%;
+}
+.legend_figure {
+  background-color: rgb(53,149,246);;
+  color: white;
+  font-style: italic;
+  padding: 2px;
+  text-align: center;
+}
+
+
+
