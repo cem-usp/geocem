@@ -210,7 +210,7 @@ This is where you can override the hero area block. You can simply modify the co
               <div class="col-md-6">
                 <p><a href="{% url "document_browse" %}"><i class="fa fa-newspaper-o fa-4x"></i></a></p>
                 <h2><a href="{% url "document_browse" %}">{{ facets.document|default:_("No") }} {% blocktrans count counter=facets.document %}Document{% plural %}Documents{% endblocktrans %}</a></h2>
-                <p>{% trans "As for the layers and maps GeoNode allows to publish tabular and text data, manage theirs metadata and associated documents." %}</p>
+                <p>{% trans "As for the layers and maps GeoNode it was published tabular and text data, manage theirs metadata and associated documents." %}</p>
                 {% if user.is_authenticated %}
                 <p class="text-center"><a class="btn btn-default" href="{% url "document_browse" %}" role="button">{% trans "Add documents" %} &raquo;</a></p>
                 {% else %}
@@ -220,7 +220,7 @@ This is where you can override the hero area block. You can simply modify the co
               <div class="col-md-6">
                 <p><a href="{% url "profile_browse" %}"><i class="fa fa-user fa-4x"></i></a></p>
                 <h2><a href="{% url "profile_browse" %}">{{ facets.user|default:_("No") }} {% blocktrans count counter=facets.user %}User{% plural %}Users{% endblocktrans %}</a></h2>
-                <p>{% trans "Geonode allows registered users to easily upload geospatial data and various documents in several formats." %}</p>
+                <p>{% trans "Users could easily upload geospatial data and various documents in several formats." %}</p>
                 <p><a class="btn btn-default" href="{% url "profile_browse" %}" role="button">{% trans "See users" %} &raquo;</a></p>
               </div>
             {% endwith %}
