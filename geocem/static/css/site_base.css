@@ -1,3 +1,9 @@
+inst-brand {
+  float: left;
+  padding: 14px 15px;
+  font-size: 20px;
+  line-height: 22px;
+}
 .inst-brand {
   background: url("../img/logo-removebg.png");
   background-repeat: no-repeat;
@@ -8,7 +14,7 @@
   width: 150px;
 }
 .navbar-brand {
-  background: url("../img/logo-removebg.png");
+  background: url("../img/logo-GeoCEMbg.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
