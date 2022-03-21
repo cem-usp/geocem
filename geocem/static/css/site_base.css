@@ -1,3 +1,25 @@
+/****** language                     ****/
+.fselect {
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+.slanguage {
+  color: white;
+  font-weight: 600;
+  border: none;
+  /*height: 60px;*/
+  line-height: 22px;
+  position: relative;
+  display: block;
+  padding: 5px 25px;
+  background-color: transparent;
+  /*for icon*/
+  background-image: url( "../img/world.png");
+  background-repeat: no-repeat;
+  background-size: 0.8em auto;
+  background-position: 0.4em center;
+}
+/******************************************/
 .inst-brand {
   float: left;
   padding: 14px 15px;
