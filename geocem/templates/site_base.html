@@ -8,6 +8,23 @@
       <link href="{{ STATIC_URL }}css/site_base.css" rel="stylesheet"/>
 {% endblock %}
 {% block extra_tab %}
+<li id="nav_language">
+          {% if csrf_token != "NOTPROVIDED" %}
+          {% get_current_language as LANGUAGE %}
+          <form class="fselect" action="/i18n/setlang/" method="post">
+          {% csrf_token %}
+            <select class="slanguage"  name="language" onchange="javascript:form.submit()">
+              {% for lang in LANGUAGES %}
+              <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% \
+endifequal %}>
+              {{ lang.1 }}
+              </option>
+              {% endfor %}
+            </select>
+          </form>
+          {% endif %}
+</li>
+
 {% comment %}
 Add Tab for Third Party Apps
 <li>
