@@ -19,6 +19,11 @@
   background-size: 0.8em auto;
   background-position: 0.4em center;
 }
+.slanguage option {
+    background: steelblue;
+    color: white;
+    font-weight: 600;
+}
 /******************************************/
 .inst-brand {
   float: left;
