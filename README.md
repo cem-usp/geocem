@@ -126,7 +126,7 @@ Whenever you need to change some settings or environment variable, the easiest t
 docker-compose stop
 
 # Restart the container in Daemon mode
-docker-compose -f docker-compose.yml -f docker-compose.override.<whatever>.yml up -d
+docker-compose -f docker-compose.yml up -d
 ```
 
 Whenever you change the model, remember to run later in the container via bash:
@@ -203,25 +203,23 @@ During the implementation of the project will be constantly updated the followin
 * User and development documentation
 * Define the style of the layers maps
 
-### Phase 1 (may 17th)
+### Phase 1
 * ** Goals: ** lay the groundwork for the next phases. The goal of this phase was
 mainly to familiarize with the tools that was chosen to adopt in the
 project, and test drive each one.
 * see all issues that were planned (and delivered) for this phase [here]().
-### Phase 2 (june 7th)
+### Phase 2
 * ** Goals: **
   * Design the basic style for the website.
   * Migrate the available data.
   * Configure users accounts
 * see all issues that were planned (and delivered) for this phase [here]().
-### Phase 3 (july 5th)
+### Phase 3
 * ** Goals: **
   * Link and fill the information from GeoCEM to he Dataverse
   * Add feature module for fast migration data
   * Configure the advance search
 * see all issues that were planned (and delivered) for this phase [here]().
-### Phase 4 (august 2nd)
+### Phase 4
 * ** Goals: ** Publish the project
 * see all issues that were planned (and delivered) for this phase [here]().
-## Wiki
-   - [Wiki links](https://github.com/hansbecc/geo_cem/wiki) 
