@@ -27,7 +27,7 @@ services:
         org.geonode.deployment.name: ${COMPOSE_PROJECT_NAME}
 
   geoserver:
-    image: geonode/geoserver:2.18.2
+    image: geonode/geoserver:2.18.x
     build: ./docker/geoserver/
     restart: unless-stopped
     container_name: geoserver4${COMPOSE_PROJECT_NAME}
