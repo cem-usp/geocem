@@ -194,11 +194,11 @@ e.g.:
 docker exec -it django4{{project_name}} sh -c 'SOURCE_URL=$SOURCE_URL TARGET_URL=$TARGET_URL ./{{project_name}}/br/restore.sh $BKP_FOLDER_NAME'
 ```
 ## GEOSERVER configuration to enable CORS
-First, get into the bash Geoserver container:
+- First, get into the bash Geoserver container:
 ```bash
 docker exec -it geoserver4geocem /bin/bash
 ```
-Second, get into the path of Tomcat, then uncomment the following <filter> and <filter-mapping> from webapps/geoserver/WEB-INF/web.xml:
+- Second, get into the path of Tomcat, then uncomment the following <filter> and <filter-mapping> from webapps/geoserver/WEB-INF/web.xml:
 ```bash
 <filter>
   <filter-name>cross-origin</filter-name>
@@ -224,6 +224,7 @@ and regardless of application server choice uncomment:
   <url-pattern>/*</url-pattern>
 </filter-mapping>  
 ```
+- Finally restart the geoserver
 [Reference](https://docs.geoserver.org/latest/en/user/production/container.html)
 
 ## Testing
