@@ -224,6 +224,7 @@ and regardless of application server choice uncomment:
   <url-pattern>/*</url-pattern>
 </filter-mapping>  
 ```
+[Reference](https://docs.geoserver.org/latest/en/user/production/container.html)
 
 ## Testing
 
