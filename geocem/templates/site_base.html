@@ -35,29 +35,50 @@ Add Tab for Third Party Apps
   {% block footer %}
   <footer>
     <div class="container">      
-      <div class="row">
+      <div class="row"> 
 	<div class="col-md-2">
-	  <a class="inst-brand" href="{% url "home" %}"><span class="title">CEM<span></a>
-	</div>	
-	<div class="col-md-2">
-          <ul class="list-unstyled">            
-            <li><a href="https://centrodametropole.fflch.usp.br/pt-br/sistemas-interativos">Sistemas Interativos</a></li>
-	    <li><a href="https://centrodametropole.fflch.usp.br/fale-conosco">Fale conosco</a></li>
-            <li><a href="https://centrodametropole.fflch.usp.br/">Acerca do CEM</a></li>
-          </ul>
-        </div>
-	<div class="col-md-2">         
-          <ul class="list-unstyled">
-	    <li><a href="http://cebrap.org.br/">CEBRAP</a></li>
-            <li><a href="http://www5.usp.br/">USP</a></li>  
-          </ul>          
-        </div>
-	<div class="col-md-2">         
-          <ul class="list-unstyled">
-            <li><a href="http://www.fapesp.br/">FAPESP</a></li>
-	    <li><a href="http://cepid.fapesp.br/home/">CEPID</a></li>	    
-          </ul>          
-        </div>
+	  <a class="inst-brand" href="{% url "home" %}"><span class="title">CEM</span></a>
+	</div>           
+	<div class="col-md-6">
+	  <div class="container"> 
+	    <div class="row"> 
+	      <div class="col-md-2">
+	  	<ul class="list-unstyled">
+	  	  <li><a href="https://centrodametropole.fflch.usp.br/">Sobre o CEM</a></li>
+		  
+	  	</ul>
+              </div>
+	      <div class="col-md-2">
+	  	<ul class="list-unstyled">
+	  	  <li><a href="https://centrodametropole.fflch.usp.br/pt-br/sistemas-interativos">Sistemas Interativos</a></li>
+		  
+	  	</ul>
+
+              </div>
+	      <div class="col-md-2">
+	  	<ul class="list-unstyled">
+	  	  <li><a href="https://centrodametropole.fflch.usp.br/fale-conosco">Fale conosco</a></li>
+		  
+	  	</ul>
+              </div>
+	    </div> 
+	    <div class="row"> 
+	      <div class="col-md-2">
+	  	<a class="sponsor-fapesp" href="http://www.fapesp.br/"></a>
+	      </div>
+	      <div class="col-md-1">
+	  	<a class="sponsor-cepid" href="http://cepid.fapesp.br/home/"></a>
+	      </div>
+	      <div class="col-md-2">
+	  	<a class="sponsor-cebrap" href="http://cebrap.org.br/"></a>
+	      </div>
+	      <div class="col-md-1">
+	  	<a class="sponsor-usp" href="http://www5.usp.br/"></a>
+	      </div>
+	    </div> <!-- row3 -->
+	    </div> <!-- container 2 -->
+	</div> <!--column 6 -->
+	
 	<div class="col-md-4 text-right">
 	   {% block contactus %}
           {% if custom_theme.contactus %}
@@ -97,14 +118,12 @@ Add Tab for Third Party Apps
               {% endfor %}
             </select>
           </form>
-          {% endif %}
-	  
-	  
+          {% endif %}	  
 	  
 	</div>
 	
-      </div>
-    </div>
+      </div><!-- row 1 -->
+    </div><!-- container 1-->
   </footer>
 
   {% endblock footer %}
