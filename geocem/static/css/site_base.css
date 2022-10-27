@@ -25,6 +25,46 @@
     font-weight: 600;
 }
 /******************************************/
+.sponsor-fapesp {
+  background: url("../img/apoio-logo-fapesp.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-indent: -9999px;
+  height: 60px;
+  width: 150px;
+  float: left;
+}
+.sponsor-cepid {
+  background: url("../img/apoio-logo-cepid.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-indent: -9999px;
+  height: 66px;
+  width: 75px;
+  float: left;
+}
+.sponsor-usp {
+  background: url("../img/apoio-logo-usp.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-indent: -9999px;
+  height: 60px;
+  width: 125px;
+  float: left;
+}
+.sponsor-cebrap {
+  background: url("../img/apoio-logo-cebrap.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-indent: -9999px;
+  height: 60px;
+  width: 138px;
+  float: left;  
+}
 .inst-brand {
   float: left;
   padding: 14px 15px;
@@ -99,11 +139,12 @@ body {
 /* Footer
 ----------------------- */
 footer {
-color: #6A6A6A;/*white;*/
+  color: #000;/*white;*/
   padding: 1.5em;
+  background-color: #BBB;
 }
 footer a {
-  color: #333333;/*#ff8f31;*/
+  color: #000;/*#ff8f31;*/
 }
 footer a:hover {
   color: #333333;/*#eb6b00;*/
