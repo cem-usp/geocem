@@ -13,7 +13,7 @@
           {% get_current_language as LANGUAGE %}
           <form class="fselect" action="/i18n/setlang/" method="post">
           {% csrf_token %}
-            <select class="slanguage"  name="language" onchange="javascript:form.submit()">
+            <select class="slanguage_header"  name="language" onchange="javascript:form.submit()">
               {% for lang in LANGUAGES %}
               <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
               {{ lang.1 }}
@@ -102,23 +102,34 @@ Add Tab for Third Party Apps
 	  <ul class="list-unstyled">
 	    <li>Conteúdo desenvolvido pelo CEM</li>
 	    <li>Notifiquenos sobre o copyright</li>	    
-            <li>Powered by <a href="http://geonode.org">GeoNode</a></li>    
-          </ul>
-	  
-	  <label class="hidden">{% trans "Language" %}</label>
+            <li>Powered by <a href="http://geonode.org">GeoNode</a></li>              
+	  </ul>
+
+	      <!-- <label class="hidden">{% trans "Language" %}</label> -->
           {% if csrf_token != "NOTPROVIDED" %}
           {% get_current_language as LANGUAGE %}
-          <form class="form-inline" action="/i18n/setlang/" method="post">
+	  
+          <!-- <form class="form-inline" action="/i18n/setlang/" method="post"> -->
+          <!-- {% csrf_token %} -->
+          <!--   <select class="col-md-6 pull-right" name="language" onchange="javascript:form.submit()"> -->
+          <!--     {% for lang in LANGUAGES %} -->
+          <!--     <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}> -->
+          <!--       {{ lang.1 }} -->
+          <!--     </option> -->
+          <!--     {% endfor %} -->
+          <!--   </select> -->
+            <!-- </form> -->
+	  <form class="fselect form-inline" action="/i18n/setlang/" method="post">
           {% csrf_token %}
-            <select class="col-md-6 pull-right" name="language" onchange="javascript:form.submit()">
+            <select class="slanguage_footer col-md-4 pull-right"  name="language" onchange="javascript:form.submit()">
               {% for lang in LANGUAGES %}
               <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
-                {{ lang.1 }}
+              {{ lang.1 }}
               </option>
               {% endfor %}
             </select>
           </form>
-          {% endif %}	  
+            {% endif %} 
 	  
 	</div>
 	

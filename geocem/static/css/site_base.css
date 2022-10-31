@@ -1,10 +1,33 @@
-/****** language                     ****/
+/****** language header                     ****/
 .fselect {
   padding-top: 20px;
   padding-bottom: 15px;
 }
-.slanguage {
+.slanguage_header {
   color: white;
+  font-weight: 600;
+  border: none;
+  /*height: 60px;*/
+  line-height: 22px;
+  position: relative;
+  display: block;
+  padding: 5px 25px;
+  background-color: #042E6F;
+  /*for icon*/
+  background-image: url( "../img/world.png");
+  background-repeat: no-repeat;
+  background-size: 0.8em auto;
+  background-position: 0.4em center;
+
+}
+.slanguage_header option {
+    background: #042E6F;
+    color: white;
+    font-weight: 600;
+}
+/******************************************/
+.slanguage_footer {
+  color: black;
   font-weight: 600;
   border: none;
   /*height: 60px;*/
@@ -14,16 +37,20 @@
   padding: 5px 25px;
   background-color: transparent;
   /*for icon*/
-  background-image: url( "../img/world.png");
+  background-image: url( "../img/world_dark.png");
   background-repeat: no-repeat;
   background-size: 0.8em auto;
   background-position: 0.4em center;
+  width: 120px;
+  text-align-last: right;
 }
-.slanguage option {
-    background: steelblue;
-    color: white;
+.slanguage_footer option {
+    background: #BBBBBB;
+    color: #000000;
     font-weight: 600;
+    direction: rtl;
 }
+
 /******************************************/
 .sponsor-fapesp {
   background: url("../img/apoio-logo-fapesp.png");
