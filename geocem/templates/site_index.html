@@ -8,40 +8,8 @@ This is where you can override the hero area block. You can simply modify the co
 
 {% block hero %}
 {% if custom_theme.welcome_theme == 'JUMBOTRON_BG' or not slides %}
-<div class="jumbotron">            
-<div class="container">
-            <div class="row">
-          <div class="col-lg-1">
-          </div>
-            <div class="col-lg-3">
-              <a href="http://200.144.244.238/layers/geocem_data:geonode:BIO_21_BR_CEM">
-                <figure class="item_figure">
-                  <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/BIO_21_BR_CEM/45d34841dfae4ec43aa00be68b2df60e.png" />
-            <figcaption class="legend_figure">Grandes Biomas do Brasil</figcaption>
-                </figure>
-                    </a>
-          
-            </div>
-            <div class="col-lg-3">
-              <a href="http://200.144.244.238/layers/geocem_data:geonode:DP2021_MSP_CEM_V1">
-                <figure  class="item_figure">
-                  <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/DP2021_MSP_CEM_V1/11248d3d53a6085747c34912da6247ed.png"/>
-            <figcaption  class="legend_figure">Distritos e Delegacias Policiais</figcaption>
-            </figure >
-                    </a>
-            </div>
-            <div class="col-lg-3">
-              <a href="http://200.144.244.238/layers/geocem_data:geonode:TERM_PAS_2021_CEM">
-                <figure  class="item_figure">
-                  <img src="http://200.144.244.238/uploaded/CACHE/images/curated_thumbs/TERM_PAS_2021_CEM_WqCT7Cv/1a3c726059c145f76d3f08a5fba3ad2e.png" />
-            <figcaption  class="legend_figure">Terminais de Passageiros<figcaption>
-                </figure>
-                    </a>
-              </div>
-              <div class="col-lg-1">
-                </div>
-            </div>
-              </div>
+<div class="jumbotron">           
+
     <!-- {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %} -->
     <!-- <h1>{% trans jumbotron_welcome_title %}</h1> -->
     <!-- {% endwith %} -->
@@ -107,41 +75,33 @@ This is where you can override the hero area block. You can simply modify the co
 {% endblock hero %}
 
 {% block mainbody %}
-
-      {% block bigsearch %}
-      {% if block.super %}
-      {{ block.super }}
-      {% else %}
-      <div class="big-search">
-      	<div class="container">
-      		<!-- <h1>{% trans "Search for Data." %}</h1> -->
-      		<div class="search">
-      			<form id="main_search" action="{% url "search" %}" >
-      				<span class="fa fa-search fa-3x"></span>
-      				{% if HAYSTACK_SEARCH %}
-      				<input id="main_search_input" type="text" placeholder="{% trans 'Search' %}" class="form-control" name="q" autocomplete="off">
-                    <input type="hidden" name="abstract__icontains" id="main_search_abstract_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="purpose__icontains" id="main_search_purpose_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="f_method" id="main_filtering_type" value="or" >
-      				{% else %}
-      				<input id="main_search_input" type="text" placeholder="{% trans 'Search' %}" class="form-control" autocomplete="off" name="title__icontains">
-                    <input type="hidden" name="abstract__icontains" id="main_search_abstract_input">
-                    <input type="hidden" name="purpose__icontains" id="main_search_purpose_input">
-                    <input type="hidden" name="f_method" id="main_filtering_type" value="or" >
-      				{% endif %}
-      			</form>
-      		</div>
-      		<p><a class="btn btn-default btn-lg" href="{% url "search" %}">{% trans "Advanced Search" %}</a></p>
-      	</div>
-      </div>
-      {% endif %}
-      {% endblock bigsearch %}
+ 
 {% block datasets %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+	<a class="home-brand" href="/">GeoCEM </a>
+      </div>
+      <div class="row">
+	{% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
+    <h1>{% trans jumbotron_welcome_title %}</h1>
+    {% endwith %}
+	<p></p>
+	<!-- "GeoCEM is an open source platform for sharing geospatial data and maps -->
+    {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"An open source platform for sharing geospatial data and maps."|template_trans %}
+    <p>{% trans jumbotron_welcome_content %}</p>
+    {% endwith %}
+
+      </div>
+    </div>
+    <div class="col-md-6">
     <section id="datasets">
-      {% get_visibile_resources request.user %}
+      {% get_visibile_resources request.user %}      
       <div ng-app="featured" ng-if="featured.length > 0" ng-cloak class="row">
           <div class="container text-center">
-            <h2>{% trans "Featured Datasets" %}</h2>
+            <h3>{% trans "Comece navegar por nossos conjunto de dados" %}</h3>
             <div class="row">
                 {% verbatim %}
                 <div ng-repeat="item in featured" class="col-xs-6 col-sm-6 col-md-3">
@@ -152,8 +112,12 @@ This is where you can override the hero area block. You can simply modify the co
             </div>
           </div>
       </div>
-      </div>
-    </section>
+      </div>    
+     </section>
+    </div>
+  </div>
+</div>
+
     {% endblock datasets %}
 
       {% block partners %}
