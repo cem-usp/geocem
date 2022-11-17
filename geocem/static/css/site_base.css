@@ -1,3 +1,23 @@
+/********** showcase **********************/
+.home #showcase {
+  background: #fff;
+  padding: 2em 0;
+  text-align: center;
+}
+.btn-default {
+  background-color: #777;
+  border-color: #777; 
+}
+.home-facets .btn{
+    color: #FFFFFF;
+}
+.home-facets a{
+    color: #042E6F;
+}
+.home-facets a i {
+    color: #777777;
+}
+
 /**********  categories and badge   ****/
 .iso-categories .row span {
   font-size: 0.7em !important;
