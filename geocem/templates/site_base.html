@@ -5,8 +5,112 @@
 {% load base_tags %}
 
 {% block extra_head %}
-      <link href="{{ STATIC_URL }}css/site_base.css" rel="stylesheet"/>
+<link href="{{ STATIC_URL }}css/site_base.css" rel="stylesheet"/>
+
 {% endblock %}
+
+{% block header %}
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="nav-container">
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <i class="fa fa-navicon fa-lg"></i>
+        </button>
+	<a class="navbar-brand" href="/">GeoCEM</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav toolbar">
+	  {% block tabs %}
+	  {% if user.is_authenticated and not READ_ONLY_MODE %}
+             <li id="nav_layers">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Data" %}<i class="fa fa-angle-down fa-lg"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url "layer_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Layers" %}</a></li>
+                <li><a href="{% url "document_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Documents" %}</a></li>
+                <li><a href="{% url "services" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Remote Services" %}</a></li>
+                
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{% url "layer_upload" %}">{% trans "Upload Layer" %}</a></li>
+                    {% if USE_GEOSERVER and CREATE_LAYER %}
+                        <li><a href="{% url "layer_create" %}">{% trans "Create Layer" %}</a></li>
+                    {% endif %}
+                    <li><a href="{% url "document_upload" %}">{% trans "Upload Document" %}</a></li>
+
+                {% if user.is_superuser or user.is_staff %}
+                  {%  if not READ_ONLY_MODE %}
+                    <li><a href="{% url "register_service" %}">{% trans "Add Remote Service" %}</a></li>
+                  {% endif %}
+                {% endif %}
+              </ul>
+            </li>
+             {% endif %}
+	 {% if user.is_authenticated %}
+          <li id="nav_maps">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "Maps" %}<i class="fa fa-angle-down fa-lg"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Explore Maps" %}</a></li>
+                  {% if not READ_ONLY_MODE %}
+                    <li> <a href="{% url "new_map" %}">{% trans "Create Map" %}</a></li>
+                  {% endif %}
+                </ul>              
+          </li>
+	  {% endif %}
+
+	  {% if GEONODE_APPS_ENABLE and GEONODE_APPS_NAV_MENU_ENABLE %}
+	  {% if user.is_authenticated %}
+          <li id="nav_maps">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% blocktrans %}{{GEONODE_APPS_NAME}}{% endblocktrans %}<i class="fa fa-angle-do\
+																								  wn fa-lg"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url "apps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Explore" %} {% blocktrans %}{{GEONODE_APPS_NAME}}{% endblocktrans %}</a></li>
+            </ul>            
+          </li>
+	  {% endif %}
+          {% endif %}
+	  {% if user.is_authenticated %}
+          <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% trans "About" %}<i class="fa fa-angle-down fa-lg"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url "profile_browse" %}">{% trans "People" %}</a></li>
+                <li><a href="{% url "group_list" %}">{% trans "Groups" %}</a></li>
+                <li><a href="{% url "group_category_list" %}">{% trans "Group Categories" %}</a></li>
+                {% if perms.announcements.can_manage %}
+                  <li><a href="{% url "announcements_list" %}">{% trans "Announcements" %}</a></li>
+                {% endif %}
+                {% if user.is_authenticated and not READ_ONLY_MODE %}
+                  <li role="separator" class="divider"></li>
+                  <li><a href="{% url "geonode.invitations:geonode-send-invite" %}">{% trans "Invite Users" %}</a></li>
+                {% endif %}
+                {% if user.is_superuser and not READ_ONLY_MODE %}
+                  <li><a href="{% if SITEURL|default:""|slice:"-1:" == "/" %}{{SITEURL}}{% else %}{{SITEURL}}/{% endif %}admin/people/profile/add/">{% trans "Add User" %}</a></li>
+                  <li><a href="{% url "group_create" %}">{% trans "Create Group" %}</a></li>
+                {% endif %}
+              </ul>
+          </li>
+	  {% endif %}
+	  
+  <li>                                                                                                                                                                                                   
+              <div class="search">                                                                                                                                                                        
+                <form id="search" action="{% url "search" %}" >         
+                  <span class="fa fa-search"></span>
+                  <div id="search-container" class="autocomplete-input">
+                    {% if HAYSTACK_SEARCH %}
+                    <input autocomplete="off" id="search_input" type="text" placeholder="{% trans 'Search' %}" name="q">
+                    <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="f_method" id="filtering_type" value="or" >
+                    {% else %}
+                    <input autocomplete="off" type="text" name="title__icontains" id="search_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="f_method" id="filtering_type" value="or" >
+                    {% endif %}
+                  </div>
+                </form>
+              </div>
+  </li>
+	  
+
 {% block extra_tab %}
 <li id="nav_language">
           {% if csrf_token != "NOTPROVIDED" %}
@@ -32,14 +136,74 @@ Add Tab for Third Party Apps
 {% endcomment %}
 {% endblock %}
 
+{% endblock %}<!-- end tab -->
+</ul>
+<ul class="nav navbar-nav navbar-right">
+
+{% block my_extra_right_tab %}
+   {% render_nav_menu 'TOPBAR_MENU' %}
+{% endblock my_extra_right_tab %}
+
+
+
+ {% if not user.is_authenticated and ACCOUNT_OPEN_SIGNUP and not READ_ONLY_MODE %}
+              <li><a href="{% url "account_signup" %}">{% trans "Register" %}</a></li>
+            {% endif %}
+ {% if user.is_authenticated %}
+            <li>
+              <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                {% autoescape off %}{% avatar user 40 %}{% endautoescape %}
+                {% with full_name=user.first_name|add:' '|add:user.last_name %}
+                  {% if full_name.strip %}
+                    {{ full_name | truncatechars:20 }}
+                  {% else %}
+                    {{ user.username | truncatechars:20 }}
+                  {% endif %}
+                {% endwith %}
+                <i class="fa fa-angle-down fa-lg"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="{{ user.get_absolute_url }}">{% trans "Profile" %}</a></li>
+                <li><a href="{% url "recent-activity" %}">{% trans "Recent Activity" %}</a></li>
+                <li><a href="{% url "messages_inbox" %}">{% trans "Inbox" %}</a></li>
+                {% if user.is_superuser or user.is_staff %}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{% url "admin:index" %}">{% trans "Admin" %}</a></li>
+                    {% if 'geonode.geoserver' in INSTALLED_APPS %}
+                    <li><a href="{{ OGC_SERVER.default.WEB_UI_LOCATION }}">GeoServer</a></li>
+                    {% endif %}
+                    {% if USE_MONITORING %}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{% url "monitoring:index" %}">{% trans "Monitoring & Analytics" %}</a></li>
+                    {% endif %}
+                {% endif %}
+                <li role="separator" class="divider"></li>
+                <li><a href="{% url "help" %}">{% trans "Help" %}</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{% if SITEURL|default:""|slice:"-1:" == "/" %}{{SITEURL}}{% else %}{{SITEURL}}/{% endif %}account/logout/">{% trans "Log out" %}</a></li>
+                </ul>
+              </li>
+          {% else %}
+          <li><a href="#" data-toggle="modal" data-target="#SigninModal" role="button" >{% trans "Sign in" %} </a></li>
+              {% endif %}
+
+</ul>
+</div>  <!--/.nav-collapse -->
+</div>
+</nav>
+{% endblock header %}
+<!-- End of Navbar -->
+
+   
+   
   {% block footer %}
   <footer>
     <div class="container">      
       <div class="row"> 
 	<div class="col-md-2">
-	  <a class="inst-brand" href="{% url "home" %}"><span class="title">CEM</span></a>
+	  <a class="inst-brand" href="https://centrodametropole.fflch.usp.br/"><span class="title">CEM</span></a>
 	</div>           
-	<div class="col-md-6">
+	<div class="col-lg-7">
 	  <div class="container"> 
 	    <div class="row"> 
 	      <div class="col-md-2">
@@ -48,7 +212,7 @@ Add Tab for Third Party Apps
 		  
 	  	</ul>
               </div>
-	      <div class="col-md-2">
+	      <div class="col-md-3">
 	  	<ul class="list-unstyled">
 	  	  <li><a href="https://centrodametropole.fflch.usp.br/pt-br/sistemas-interativos">Sistemas Interativos</a></li>
 		  
@@ -72,14 +236,14 @@ Add Tab for Third Party Apps
 	      <div class="col-md-2">
 	  	<a class="sponsor-cebrap" href="http://cebrap.org.br/"></a>
 	      </div>
-	      <div class="col-md-1">
+	      <div class="col-md-2">
 	  	<a class="sponsor-usp" href="http://www5.usp.br/"></a>
 	      </div>
 	    </div> <!-- row3 -->
 	    </div> <!-- container 2 -->
 	</div> <!--column 6 -->
 	
-	<div class="col-md-4 text-right">
+	<div class="col-md-3 text-right">
 	   {% block contactus %}
           {% if custom_theme.contactus %}
           <ul class="list-unstyled">

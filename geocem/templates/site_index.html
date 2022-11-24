@@ -82,12 +82,12 @@ This is where you can override the hero area block. You can simply modify the co
   <div class="row">
     <div class="col-md-6">
       <div class="row">
-	<a class="home-brand" href="/">GeoCEM </a>
+	<a class="home-brand" href="#">GeoCEM </a>
       </div>
       <div class="row">
-	{% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
+	<!-- {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
     <h1>{% trans jumbotron_welcome_title %}</h1>
-    {% endwith %}
+    {% endwith %} -->
 	<p></p>
 	<!-- "GeoCEM is an open source platform for sharing geospatial data and maps -->
     {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"An open source platform for sharing geospatial data and maps."|template_trans %}

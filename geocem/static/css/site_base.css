@@ -4,6 +4,11 @@
   padding: 2em 0;
   text-align: center;
 }
+.home #showcase .row {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+}
 .btn-default {
   background-color: #777;
   border-color: #777; 
@@ -109,6 +114,16 @@
 }
 
 /******************************************/
+#wrap {
+    background-color: transparent;
+    padding:0px;
+}
+.navbar-inverse .nav-container {
+  margin: 0 2% 0 2%; 
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .sponsor-fapesp {
   background: url("../img/apoio-logo-fapesp.png");
   background-repeat: no-repeat;
@@ -175,21 +190,26 @@
 }
 
 body {
-    background: #042E6F; /*#F5F5F5;#333333;*/
+    background: transparent;/* #042E6F; #F5F5F5;#333333;*/
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   padding-top: 20px;
 }
 .home .navbar-inverse, .navbar-inverse {
     background-color: #052e70;/*rgba(0, 0, 0, 0.5);*/
+    margin-right: auto;
+    margin-left: auto;
+
 }
 .home .jumbotron {
   position: relative;
   background: #042E6F;/*#ffffff;#2c689c;*/
   color: white;
   margin-bottom: 0;
-  padding: 7.5em 0 3.75em;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  padding: 2.5em 0 3.75em;
+  text-shadow: none;/*2px 2px 2px rgba(0, 0, 0, 0.4);*/
+  
+  width: 100%;
 }
 .home .big-search {
   background: #F7F7F7;/* #333333; */
@@ -213,15 +233,20 @@ body {
 .home #datasets a .category:hover {
   color: #333333;/*#2c689c;*/
 }
-.home #wrap {
-    background: #042E6F;
+.jumbotron .container{
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .jumbotron {
   background: #042E6F;/*#2c689c;*/
-  color: white;*/
-  padding: 40px 0 60px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-  margin-top: -10px;
+  color: white;
+  padding-top: 30px;
+  /* padding: 40px 0 60px;*/
+  /* margin-left: 15px;
+  margin-right: 15px;*/
+  text-shadow: none; /* 2px 2px 2px rgba(0, 0, 0, 0.4);*/
+  /*margin-top: -10px;*/
 }
 /* Footer
 ----------------------- */
@@ -249,11 +274,10 @@ footer .wrap-outer-footer-institute {
     left: 0;
     position: fixed;
 }
-footer .container {
-    padding-right: 15px;
-    padding-left: 15px;
+footer .container {    
     margin-right: auto;
     margin-left: auto;
+    max-width: 1200px;
 }
 footer .wrapper-institute {
     padding: 20px 0;
