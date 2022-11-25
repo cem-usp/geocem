@@ -57,8 +57,8 @@
   background-position: center;
   background-size: contain;
   text-indent: -9999px;
-  height: 120px;
-  width: 300px;
+  height: 300px;
+  width: 523px;
 }
 /****** language header                     ****/
 .fselect {
@@ -232,6 +232,10 @@ body {
 }
 .home #datasets a .category:hover {
   color: #333333;/*#2c689c;*/
+}
+.home #datasets a .category { 
+  margin: 0 -15px;
+  padding: 0;
 }
 .jumbotron .container{
     max-width: 100%;

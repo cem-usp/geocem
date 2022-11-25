@@ -85,9 +85,9 @@ This is where you can override the hero area block. You can simply modify the co
 	<a class="home-brand" href="#">GeoCEM </a>
       </div>
       <div class="row">
-	<!-- {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoCEM"|template_trans %}
-    <h1>{% trans jumbotron_welcome_title %}</h1>
-    {% endwith %} -->
+	{% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"Welcome to GeoCEM"|template_trans %}
+    <h3>{% trans jumbotron_welcome_title %}</h3>
+    {% endwith %}
 	<p></p>
 	<!-- "GeoCEM is an open source platform for sharing geospatial data and maps -->
     {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"An open source platform for sharing geospatial data and maps."|template_trans %}
@@ -98,13 +98,14 @@ This is where you can override the hero area block. You can simply modify the co
     </div>
     <div class="col-md-6">
     <section id="datasets">
-      {% get_visibile_resources request.user %}      
+     {% get_visibile_resources request.user %}
       <div ng-app="featured" ng-if="featured.length > 0" ng-cloak class="row">
           <div class="container text-center">
-            <h3>{% trans "Comece navegar por nossos conjunto de dados" %}</h3>
+            <h3>{% trans "Discover our datasets" %}</h3>
             <div class="row">
                 {% verbatim %}
-                <div ng-repeat="item in featured" class="col-xs-6 col-sm-6 col-md-3">
+                <!-- <div ng-repeat="item in featured" class="col-xs-6 col-sm-6 col-md-3"> -->
+		<div ng-repeat="item in featured" class="col-xs-4">
                   <a href="{{ item.detail_url }}"><img ng-src="{{ item.thumbnail_url }}" style="width: 100%" /></a>
                   <h4>{{ item.title | limitTo: 20 }}{{item.title.length > 20 ? '...' : ''}}</h4>
                 </div>
@@ -219,5 +220,6 @@ This is where you can override the hero area block. You can simply modify the co
           </script>
       {% endif %}
       {% endblock cookielawinfo %}
+{% endblock mainbody %}
+	  
 
-  {% endblock mainbody %}
