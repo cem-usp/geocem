@@ -22,13 +22,14 @@
           {% endblock %}
         {% endif %}
 
-        <div class="selections">
+       
+            {% if SEARCH_FILTERS.TEXT_ENABLED %}
+              {% include "search/_text_filter.html" %}
+          {% endif  %}
+	<div class="selections">
             {% trans "Filters" %}
             <a href="." id="clear-search" class="pull-right">{% trans "Clear" %}</a>
         </div>
-            {% if SEARCH_FILTERS.TEXT_ENABLED %}
-              {% include "search/_text_filter.html" %}
-            {% endif  %}
         <div id="slide-pane">
           {% block search_facet_lists %}
 	    {% include "search/_general_filters.html" %}
