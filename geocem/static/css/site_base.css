@@ -1,4 +1,7 @@
 /**************Explorer site **************/
+.fa-stack {
+   color: #042E6F;
+}
 #clear-search {
   float: right !important;
   color: #042E6F;
@@ -21,6 +24,23 @@
   background-size: 3em auto;
   background-position: 0.4em center;
   padding: 2px 15px;
+}
+.autocomplete-input #region_search_input{
+  width: 100%;
+  height: 32px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  outline-width: 0;
+  text-indent: 32px; 
+  transition: width 0.2s;
+  background-image: url( "../img/search-icon.png");
+  background-repeat: no-repeat;
+  background-size: 3em auto;
+  background-position: 0.4em center;
+  padding: 2px 15px;
+}
+.autocomplete-input input-group {
+  display: block;
 }
 .list-group-item > .badge {
   float: right;
