@@ -24,6 +24,9 @@
 .item-details .abstract p { 
   color: #000;
 }
+.item-details h4 a { 
+  color: #042E6F;
+}
 .treeview span.node-icon {
   padding-right: 17px;
   visibility: collapse;
