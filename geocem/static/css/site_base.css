@@ -1,4 +1,40 @@
 /**************Explorer site **************/
+#sort .selected {
+  color: #042e6f;
+  background-color: #d9d9d9;
+}
+#sort a {
+  color: #042e6f;
+}
+.dropdown-menu {
+  border: 1px solid #042e6f;
+}
+.pagination > li > a, .pagination > li > span {
+  color: #042E6F;
+  border: none;
+}
+.pagination > li .big-font-pager {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000;
+}
+.pagination > li .pagerindex{
+  color: #000;
+}
+.item-details .abstract p { 
+  color: #000;
+}
+.treeview span.node-icon {
+  padding-right: 17px;
+  visibility: collapse;
+}
+.ol-zoom .ol-zoom-in, .ol-zoom .ol-zoom-out {
+  border-radius: 5px 5px 5px 5px;
+}
+.ol-control button{
+  background-color: #042E6F;
+  border-radius: 5px 5px 5px 5px;
+}
 .fa-stack {
    color: #042E6F;
 }
@@ -22,13 +58,16 @@
   background-image: url( "../img/search-icon.png");
   background-repeat: no-repeat;
   background-size: 3em auto;
-  background-position: 0.4em center;
+  background-position: 0.4em center;  
   padding: 2px 15px;
+}
+#region-search-autocomplete{
+  width: 100%;
 }
 .autocomplete-input #region_search_input{
   width: 100%;
   height: 32px;
-  border: 1px solid #333333;
+  border: none;/*1px solid #333333;*/
   border-radius: 5px;
   outline-width: 0;
   text-indent: 32px; 
@@ -38,6 +77,9 @@
   background-size: 3em auto;
   background-position: 0.4em center;
   padding: 2px 15px;
+  background-color: #d9d9d9;
+  color: #000;
+  font-weight: bold;
 }
 .autocomplete-input input-group {
   display: block;
@@ -77,6 +119,9 @@ nav.filter h4 {
   color: #042E6F;
 }
 .ng-binding {
+  color: #000;
+}
+.list-inline .ng-binding .fa {
   color: #042E6F;
 }
 .panel-default > .panel-heading {
