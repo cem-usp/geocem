@@ -1,3 +1,22 @@
+/************* dropdwon menu ************************/
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: #042E6F;
+}
+.navbar-nav .dropdown-menu li a:hover {
+  background-color: #d9d9d9;
+  color: #042E6F;
+}
+.navbar-nav .dropdown-menu {
+  background-color: white;
+  border-top: 1px solid white;  
+}
+.navbar-nav .dropdown-menu a {
+  color: #042e6f;
+}
+.navbar-nav .dropdown-menu .divider {
+  background-color: #d9d9d9;
+}
+
 /**************Explorer site **************/
 #sort .selected {
   color: #042e6f;
@@ -340,7 +359,7 @@ body {
   padding-top: 20px;
 }
 .home .navbar-inverse, .navbar-inverse {
-    background-color: #052e70;/*rgba(0, 0, 0, 0.5);*/
+    background-color: #042E6F;/*rgba(0, 0, 0, 0.5);*/
     margin-right: auto;
     margin-left: auto;
 
