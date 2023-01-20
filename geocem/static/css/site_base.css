@@ -1,6 +1,21 @@
+/************* mask *******************/
+.lmask {
+  position: absolute;
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+  opacity: 0.35;
+}
 /************* dropdwon menu ************************/
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
-  background-color: #042E6F;
+  background-color: white;
+  color: #042E6F;
 }
 .navbar-nav .dropdown-menu li a:hover {
   background-color: #d9d9d9;
@@ -26,7 +41,7 @@
   color: #042e6f;
 }
 .dropdown-menu {
-  border: 1px solid #042e6f;
+    border: 1px solid white;/*#042e6f;*/
 }
 .pagination > li > a, .pagination > li > span {
   color: #042E6F;
@@ -237,7 +252,7 @@ nav.filter h4 {
   position: relative;
   display: block;
   padding: 5px 25px;
-  background-color: #042E6F;
+  background: #042E6F;
   /*for icon*/
   background-image: url( "../img/world.png");
   background-repeat: no-repeat;
@@ -246,10 +261,14 @@ nav.filter h4 {
 
 }
 .slanguage_header option {
-    background: #042E6F;
-    color: white;
-    font-weight: 600;
+    background-color: white!important;
+    color: #042E6F!important;
+    font-weight: 600!important;
 }
+/** .slanguage_header option:not(:checked) {
+    background-color: #fff;
+    color: #042E6F
+}**/
 /******************************************/
 .slanguage_footer {
   color: black;
