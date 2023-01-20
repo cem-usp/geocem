@@ -20,6 +20,45 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav toolbar">
+	    <li>                                                                                                                                                                                                   
+              <div class="search">                                                                                                                                                                        
+                <form id="search" action="{% url "search" %}" >         
+                  <span class="fa fa-search"></span>
+                  <div id="search-container" class="autocomplete-input">
+                    {% if HAYSTACK_SEARCH %}
+                    <input autocomplete="off" id="search_input" type="text" placeholder="{% trans 'Search' %}" name="q">
+                    <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="f_method" id="filtering_type" value="or" >
+                    {% else %}
+                    <input autocomplete="off" type="text" name="title__icontains" id="search_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="{% trans 'Search' %}" >
+                    <input type="hidden" name="f_method" id="filtering_type" value="or" >
+                    {% endif %}
+                  </div>
+                </form>
+              </div>
+  </li>
+	  
+
+{% block extra_tab %}
+<li id="nav_language">
+          {% if csrf_token != "NOTPROVIDED" %}
+          {% get_current_language as LANGUAGE %}
+          <form class="fselect" action="/i18n/setlang/" method="post">
+          {% csrf_token %}
+            <select class="slanguage_header"  name="language" onchange="javascript:form.submit()">
+              {% for lang in LANGUAGES %}
+              <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
+              {{ lang.1 }}
+              </option>
+              {% endfor %}
+            </select>
+          </form>
+          {% endif %}
+</li>
+
 	  {% block tabs %}
 	  {% if user.is_authenticated and not READ_ONLY_MODE %}
              <li id="nav_layers">
@@ -89,44 +128,6 @@
           </li>
 	  {% endif %}
 	  
-  <li>                                                                                                                                                                                                   
-              <div class="search">                                                                                                                                                                        
-                <form id="search" action="{% url "search" %}" >         
-                  <span class="fa fa-search"></span>
-                  <div id="search-container" class="autocomplete-input">
-                    {% if HAYSTACK_SEARCH %}
-                    <input autocomplete="off" id="search_input" type="text" placeholder="{% trans 'Search' %}" name="q">
-                    <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="f_method" id="filtering_type" value="or" >
-                    {% else %}
-                    <input autocomplete="off" type="text" name="title__icontains" id="search_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="{% trans 'Search' %}" >
-                    <input type="hidden" name="f_method" id="filtering_type" value="or" >
-                    {% endif %}
-                  </div>
-                </form>
-              </div>
-  </li>
-	  
-
-{% block extra_tab %}
-<li id="nav_language">
-          {% if csrf_token != "NOTPROVIDED" %}
-          {% get_current_language as LANGUAGE %}
-          <form class="fselect" action="/i18n/setlang/" method="post">
-          {% csrf_token %}
-            <select class="slanguage_header"  name="language" onchange="javascript:form.submit()">
-              {% for lang in LANGUAGES %}
-              <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
-              {{ lang.1 }}
-              </option>
-              {% endfor %}
-            </select>
-          </form>
-          {% endif %}
-</li>
 
 {% comment %}
 Add Tab for Third Party Apps
