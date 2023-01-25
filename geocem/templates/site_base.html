@@ -16,7 +16,9 @@
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <i class="fa fa-navicon fa-lg"></i>
         </button>
-	<a class="navbar-brand" href="/">GeoCEM</a>
+	<!--<a href="{% if SITEURL|default:""|slice:"-1:" == "/" %}{{SITEURL}}{% else %}{{SITEURL}}/{% endif %}account/logout/">-->
+	<!-- <a class="navbar-brand" href="/">GeoCEM</a> -->
+	{% if request.get_full_path != "/" %} <a class="navbar-brand" href="/">GeoCEM</a> {% endif %}
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav toolbar">
@@ -147,7 +149,7 @@ Add Tab for Third Party Apps
 
 
 
- {% if not user.is_authenticated and ACCOUNT_OPEN_SIGNUP and not READ_ONLY_MODE %}
+{% if not user.is_authenticated and ACCOUNT_OPEN_SIGNUP and not READ_ONLY_MODE %}
               <li><a href="{% url "account_signup" %}">{% trans "Register" %}</a></li>
             {% endif %}
  {% if user.is_authenticated %}
@@ -303,3 +305,4 @@ Add Tab for Third Party Apps
   </footer>
 
   {% endblock footer %}
+
