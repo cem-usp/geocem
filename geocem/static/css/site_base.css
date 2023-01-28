@@ -1,3 +1,29 @@
+/************** profile style **************/
+.profile-image img {
+  width: 50%;
+  border-radius: 50%;
+}
+.table-user-profile-attribute {
+  color: #042E6F;
+}
+.table > tbody > tr > td {
+  border-top: none;
+}
+#item-important{
+    background-color: #042E6F;
+}
+#item-important a{
+  color: #fff;
+}
+.list-group-item a span{
+  color: #000;
+}
+#sort a {
+  color: #000;
+}
+.resource-title h4, .resource-title h3 {
+   color: #042e6f;
+}
 /************** model-content **************/
 .modal-content {
   background-color: #D9D9D9;
