@@ -1,4 +1,7 @@
 /************** profile style **************/
+.email-atribute {
+    color: #777777;
+}
 .profile-image img {
   width: 50%;
   border-radius: 50%;
@@ -18,9 +21,6 @@
 .list-group-item a span{
   color: #000;
 }
-#sort a {
-  color: #000;
-}
 .resource-title h4, .resource-title h3 {
    color: #042e6f;
 }
@@ -34,9 +34,9 @@
   background-color: #042E6F;
   border-color: #042E6F;
 }
-a {
+/*a {
   color: #042E6F;
-}
+}*/
 .modal-header { 
   border-bottom: 1px solid #d9d9d9;
 }

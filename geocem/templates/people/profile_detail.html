@@ -25,10 +25,47 @@
   <div class="col-xs-3 col-md-2 profile-image">
   {% autoescape off %}{% avatar profile 240 %}{% endautoescape %}
   </div>
+  <table><tr><td>
       <table><tr><td>
 	<h3>{{ profile.first_name|default:profile.name_long }}</h3>
       </td>
-    <tr><td class="email-atribute">{{ profile.email }}</td>
+	<tr><td class="email-atribute">{{ profile.email }}</td>	  
+	</tr>    
+      </table>
+      </td><td>
+      <table>
+      <tr><td>
+      {% if user.is_authenticated %}
+      {% if user == profile %}
+      {% for group in profile.group_list_all %}
+      <div ng-if="group.logo_url != ''" class="col-xs-1 pull-right group-logo">
+	<a href="{{ group.get_absolute_url }}" ><img src="{{ group.logo_url }}" alt="{{ group.title }}" /></a>
+      </div>
+      <!-- <div class="col-xs-6 col-md-8">
+	   <h5>
+	     <a href="{{ group.get_absolute_url }}">{{ group.title }}</a>
+	     {% if group.email %} <a href="mailto:{{ group.email }}"><i class="fa fa-envelope-o"></i></a>{% endif %}
+	   </h5>
+      </div> -->
+      {% endfor %}
+      {% else %}
+      {% for group in profile.group_list_public %}
+      <div ng-if="group.logo_url != ''" class="col-xs-1 pull-right group-logo">
+	<a href="{{ group.get_absolute_url }}" ><img src="{{ group.logo_url }}" alt="{{ group.title }}" /></a>
+      </div>
+      <!-- <div class="col-xs-6 col-md-8">
+	   <h5>
+	     <a href="{{ group.get_absolute_url }}">{{ group.title }}</a>
+	     {% if group.email %} <a href="mailto:{{ group.email }}"><i class="fa fa-envelope-o"></i></a>{% endif %}
+	   </h5>
+      </div> -->
+      {% endfor %}
+      {% endif %}
+      {% endif %}
+      </td>
+      </tr>
+      </table>
+      </td>
     </tr>
     </table>
 </div>  
@@ -36,33 +73,6 @@
 
 <div class="col-xs-9 col-md-7 profile-details">
 
-{% if user.is_authenticated %}
-{% if user == profile %}
-  {% for group in profile.group_list_all %}
-  <div ng-if="group.logo_url != ''" class="col-xs-1 pull-right group-logo">
-    <a href="{{ group.get_absolute_url }}" ><img src="{{ group.logo_url }}" alt="{{ group.title }}" /></a>
-  </div>
-  <!-- <div class="col-xs-6 col-md-8">
-    <h5>
-      <a href="{{ group.get_absolute_url }}">{{ group.title }}</a>
-      {% if group.email %} <a href="mailto:{{ group.email }}"><i class="fa fa-envelope-o"></i></a>{% endif %}
-    </h5>
-  </div> -->
-  {% endfor %}
-{% else %}
-  {% for group in profile.group_list_public %}
-  <div ng-if="group.logo_url != ''" class="col-xs-1 pull-right group-logo">
-    <a href="{{ group.get_absolute_url }}" ><img src="{{ group.logo_url }}" alt="{{ group.title }}" /></a>
-  </div>
-  <!-- <div class="col-xs-6 col-md-8">
-    <h5>
-      <a href="{{ group.get_absolute_url }}">{{ group.title }}</a>
-      {% if group.email %} <a href="mailto:{{ group.email }}"><i class="fa fa-envelope-o"></i></a>{% endif %}
-    </h5>
-  </div> -->
-  {% endfor %}
-{% endif %}
-{% endif %}
 
   <table class="table table-user-profile">
     <tbody>
