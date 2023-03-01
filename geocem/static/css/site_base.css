@@ -1,3 +1,5 @@
+
+
 /************** profile style **************/
 .email-atribute {
     color: #777777;
@@ -143,6 +145,14 @@
   background-position: 0.4em center;  
   padding: 2px 15px;
 }
+.region-search-btn{
+	color: #000;
+	background-color: #D9D9D9;
+	border: none;
+position: absolute;
+top: 4px;
+left: 10px;
+}
 #region-search-autocomplete{
   width: 100%;
 }
@@ -154,7 +164,7 @@
   outline-width: 0;
   text-indent: 32px; 
   transition: width 0.2s;
-  background-image: url( "../img/search-icon.png");
+ /* background-image: url( "../img/search-icon.png");*/
   background-repeat: no-repeat;
   background-size: 3em auto;
   background-position: 0.4em center;

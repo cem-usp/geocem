@@ -7,12 +7,14 @@
         <li>
             <form class="autocomplete-input input-group" id="region-search-autocomplete">
                 {% csrf_token %}
+		<span class="container-search-btn">
+                    <button class="region-search-btn" type="submit" id="region_search_btn"><i class="fa fa-search"></i></button>
+                </span>
+
                 <div id="region-search-container">
                     <input autocomplete="off" type="text" name="region_search_input" id="region_search_input" placeholder="{% trans "Search by region" %}" >
                 </div>
-                <!-- <span class="input-group-btn">
-                    <button class="btn btn-primary" type="submit" id="region_search_btn"><i class="fa fa-search"></i></button>
-                </span> -->
+                
             </form>
         </li>
     </ul>
