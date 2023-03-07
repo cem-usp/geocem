@@ -1,4 +1,9 @@
 /********** users **********************/
+.email-profile {
+  color: #777;
+  font-weight: 200;
+  font-size: 12px;
+}
 .result_total {
   color: #042E6F;
   font-weight: 700;

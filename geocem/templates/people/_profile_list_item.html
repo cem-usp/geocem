@@ -12,18 +12,24 @@
             <a href="{{ profile.profile_detail_url }}">{{ profile.first_name != '' ? profile.first_name : profile.username }} {{ profile.last_name != '' ? profile.last_name : '' }}
             </a>
           </h5>
-          <p>
-            <small ng-hide="profile.organization">
+	  <p>
+	    <span class="email-profile">{{profile.email}}</span></br>  
+	    <!-- <small ng-show="profile.position">
+              {{ profile.position | default:_('Not provided.') }} <small ng-if="profile.position.length > 30">...</small>
+            </small>
+            </br>-->         
+            <!-- <small ng-hide="profile.organization">
               {% endverbatim %}
               {% trans "No Organization Info" %}
               {% verbatim %}
-            </small>
+            </small> -->
             <small ng-show="profile.organization">
               {{ profile.organization | limitTo:30 }} <small ng-if="profile.organization.length > 30">...</small>
             </small>
           </p>
           <!-- <p>{{ profile.username }}</p> -->
           <!-- <a href="mailto:{{ profile.email }}" ng-if="profile.email != ''"><i class="fa fa-envelope"></i></a> -->
+          
         </div>
         <div class="col-xs-2">
         </div>
