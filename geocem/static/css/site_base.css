@@ -1,4 +1,8 @@
 /********** users **********************/
+.result_total {
+  color: #042E6F;
+  font-weight: 700;
+}
 .profile-avatar {
   background: #d9d9d9;
   padding: 0;
@@ -22,6 +26,9 @@
 }
 .profile-avatar .profile-items {
   border-top: none;
+}
+.profile-avatar h5 a {
+  color: #042E6F;
 }
 /************** profile style **************/
 .email-atribute {
