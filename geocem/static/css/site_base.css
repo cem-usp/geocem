@@ -1,3 +1,25 @@
+/*************** button up arrow **************/
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #042E6F;
+  color: white;
+  cursor: pointer;
+  padding-right: 5px;
+  padding-left: 5px;
+  border-radius: 50%
+}
+
+#myBtn:hover {
+  background-color: #777;
+}
+
 /********** users **********************/
 .email-profile {
   color: #777;
@@ -62,6 +84,13 @@
    color: #042e6f;
 }
 /************** model-content **************/
+.modal-body ul li a {
+  color: #000;
+  text-decoration: underline;
+}
+.modal-dialog {
+  width: 319px;
+}
 .modal-content {
   background-color: #D9D9D9;
   color: #042E6F;
@@ -257,7 +286,7 @@ nav.filter h4 {
   border-color: #042E6F;
   font-weight: 900;
 }
-.btn-default {
+.modal-footer .btn-default, .btn-default {
   background-color: #042E6F;
   border-color: #042E6F;
   color: #fff;
@@ -273,7 +302,7 @@ nav.filter h4 {
   margin-left: auto;
   max-width: 1200px;
 }
-.btn-default {
+.home-facets .btn-default {
   background-color: #777;
   border-color: #777; 
 }
