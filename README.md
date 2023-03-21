@@ -52,7 +52,7 @@ Clone the source code
   git clone https://github.com/GeoNode/geonode-project.git -b 3.1.x
   ```
 Make an instance out of the Django Template
-** Note: ** We will call our instance geo_cem. You can change the name at your convenience.
+**Note:** We will call our instance geocem. You can change the name at your convenience.
 
 Install virtualenv and virtualenvwrapper, edit .bashrc file:
 
@@ -66,16 +66,16 @@ Install virtualenv and virtualenvwrapper, edit .bashrc file:
 
    ```bash
    source ~/.local/bin/virtualenvwrapper.sh
-   mkvirtualenv --python=/usr/bin/python3 geo_cem
+   mkvirtualenv --python=/usr/bin/python3 geocem
 
    Alterantively you can also create the virtual env like below
-   python3 -m venv /home/geonode/dev/.venvs/geo_cem
-   source /home/geonode/dev/.venvs/geo_cem/bin/activate
+   python3 -m venv /home/geonode/dev/.venvs/geocem
+   source /home/geonode/dev/.venvs/geocem/bin/activate
 
    pip install Django==2.2.12
 
-   django-admin startproject --template=./geonode-project -e py,sh,md,rst,json,yml,ini,env,sample,properties -n monitoring-cron -n Dockerfile geo_cem
-   cd /opt/geonode_custom/geo_cem
+   django-admin startproject --template=./geonode-project -e py,sh,md,rst,json,yml,ini,env,sample,properties -n monitoring-cron -n Dockerfile geocem
+   cd /opt/geonode_custom/geocem
    ```
 Modify the code and the templates and rebuild the Docker Containers
    ```bash
