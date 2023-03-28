@@ -110,6 +110,9 @@ Step 3. Set up a free account on github or bitbucket and make a copy of the repo
 
 Update the templates or the Django models. Once in the bash you can edit the templates or the Django models/classes. From here you can run any standard Django management command.
 
+```bash
+docker exec -it django4geocem /bin/bash
+```
 Whenever you change a template/CSS/Javascript remember to run later:
 
 ```bash
@@ -117,7 +120,7 @@ python manage.py collectstatic
 ```
 in order to update the files into the statics Docker volume.
 
-** Warning: ** This is an external volume, and a simple restart won’t update it. You have to be careful and keep it aligned with your changes.
+**Warning:** This is an external volume, and a simple restart won’t update it. You have to be careful and keep it aligned with your changes.
 
 Whenever you need to change some settings or environment variable, the easiest thing to do is to:
 
