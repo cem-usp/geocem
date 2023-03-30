@@ -1,0 +1,7 @@
+docker cp "./geocem/templates/people" django4geocem:"/usr/src/geocem/geocem/templates/"
+docker cp "./geocem/templates/search" django4geocem:"/usr/src/geocem/geocem/templates/"
+docker cp "./geocem/templates/base" django4geocem:"/usr/src/geocem/geocem/templates/"
+docker cp "./geocem/templates/site_index.html" django4geocem:"/usr/src/geocem/geocem/templates/"
+docker cp "./geocem/templates/site_base.html" django4geocem:"/usr/src/geocem/geocem/templates/"
+docker cp "./geocem/static/css/site_base.css" django4geocem:"/usr/src/geocem/geocem/static/css/"
+docker cp "./geocem/static/img/*.png" django4geocem:"/usr/src/geocem/geocem/static/img/"
