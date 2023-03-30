@@ -65,7 +65,6 @@ Install virtualenv and virtualenvwrapper, edit .bashrc file:
    ```
 
    ```bash
-   source ~/.local/bin/virtualenvwrapper.sh
    mkvirtualenv --python=/usr/bin/python3 geocem
 
    Alterantively you can also create the virtual env like below
